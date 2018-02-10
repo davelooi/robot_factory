@@ -1,3 +1,5 @@
+require 'values'
+
 module Repositories
   class Robot < Value.new(:name, :condition, :configuration)
   end
