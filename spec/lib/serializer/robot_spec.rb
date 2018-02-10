@@ -1,21 +1,19 @@
-require 'factory/robot'
-require 'serializer/robot'
-require 'json'
-require 'rspec/its'
+require 'rails_helper'
 
 RSpec.describe Serializer::Robot do
   describe '#to_h' do
-    let(:hash) { Serializer::Robot.new(robot).to_h }
-
     let(:robot) do
-      Repositories::Robot.with(
+      Robot.new(
         name: 'BB-8',
-        condition: condition,
+        on_fire: true,
+        rusty: true,
+        loose_screws: true,
+        paint_scratched: true,
         configuration: configuration,
       )
     end
     let(:configuration) do
-      Repositories::Configuration.with(
+      Configuration.new(
         has_sentience: true,
         has_wheels: true,
         has_tracks: true,
@@ -23,14 +21,7 @@ RSpec.describe Serializer::Robot do
         colour: 'purple',
       )
     end
-    let(:condition) do
-      Repositories::Condition.with(
-        on_fire: true,
-        rusty: true,
-        loose_screws: true,
-        paint_scratched: true,
-      )
-    end
+    subject(:hash) { Serializer::Robot.new(robot).to_h }
 
     it 'expect robot to be serialized' do
       expect(hash).to eq({

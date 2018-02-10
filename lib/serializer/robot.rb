@@ -23,19 +23,15 @@ module Serializer
     attr_reader :robot
 
     def configuration
-      robot.configuration
-    end
-
-    def condition
-      robot.condition
+      @configuration ||= robot.configuration
     end
 
     def statuses
       arr = []
-      arr << 'on fire' if condition.on_fire
-      arr << 'rusty' if condition.rusty
-      arr << 'loose screws' if condition.loose_screws
-      arr << 'paint scratched' if condition.paint_scratched
+      arr << 'on fire' if robot.on_fire
+      arr << 'rusty' if robot.rusty
+      arr << 'loose screws' if robot.loose_screws
+      arr << 'paint scratched' if robot.paint_scratched
       arr
     end
   end
