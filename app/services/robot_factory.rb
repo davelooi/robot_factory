@@ -3,12 +3,14 @@ module Services
     class << self
       # returns an array of Robot
       def build_batch(num_of_robots: 10)
-        num_of_robots.times.map do
-          Robot.create_with(
-            name: name,
-            configuration: configuration,
-            condition: condition,
-          )
+        Robot.transaction do
+          num_of_robots.times.map do
+            Robot.create_with(
+              name: name,
+              configuration: configuration,
+              condition: condition,
+            )
+          end
         end
       end
 
