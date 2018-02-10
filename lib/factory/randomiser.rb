@@ -4,8 +4,8 @@ module Factory
       [true, false].sample
     end
 
-    def self.number
-      Random.new.rand(1..10)
+    def self.number(range)
+      Random.new.rand(range)
     end
 
     def self.colour

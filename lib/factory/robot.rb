@@ -10,7 +10,7 @@ module Factory
           has_sentience: Randomiser.boolean,
           has_wheels: Randomiser.boolean,
           has_tracks: Randomiser.boolean,
-          num_of_rotors: Randomiser.number,
+          num_of_rotors: Randomiser.number(1..10),
           colour: Randomiser.colour,
         )
 
