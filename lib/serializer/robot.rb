@@ -6,6 +6,7 @@ module Serializer
 
     def to_h
       {
+        'id' => robot.id,
         'name' => robot.name,
         'configuration' => {
           'hasSentience' => configuration.has_sentience,

@@ -4,6 +4,7 @@ RSpec.describe Serializer::Robot do
   describe '#to_h' do
     let(:robot) do
       Robot.new(
+        id: 22,
         name: 'BB-8',
         on_fire: true,
         rusty: true,
@@ -25,6 +26,7 @@ RSpec.describe Serializer::Robot do
 
     it 'expect robot to be serialized' do
       expect(hash).to eq({
+        'id' => 22,
         'name' => 'BB-8',
         'configuration' => {
           'hasSentience' => true,
