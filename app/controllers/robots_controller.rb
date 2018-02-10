@@ -1,6 +1,10 @@
 class RobotsController < ApplicationController
+  require 'oj'
   def index
-    # Make a batch of robots and return it as json
-    render json: {}
+    # Build a batch of robots
+    batch = Factory::Production.build_batch
+
+    # return it as json
+    render json: Oj.dump(batch.map { |robot| Serializer::Robot.new(robot).to_h })
   end
 end

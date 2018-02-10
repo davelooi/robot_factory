@@ -48,11 +48,6 @@ GEM
     erubi (1.7.0)
     faker (1.8.7)
       i18n (>= 0.7)
-    fast_jsonapi (1.0.17)
-      activerecord (~> 5.0)
-      activesupport (~> 5.0)
-      multi_json (~> 1.12)
-      oj (~> 3.3)
     ffi (1.9.21)
     formatador (0.2.5)
     globalid (0.4.1)
@@ -87,7 +82,6 @@ GEM
     mini_mime (1.0.0)
     mini_portile2 (2.3.0)
     minitest (5.11.3)
-    multi_json (1.13.1)
     nenv (0.3.0)
     nio4r (2.2.0)
     nokogiri (1.8.2)
@@ -188,9 +182,9 @@ PLATFORMS
 
 DEPENDENCIES
   faker
-  fast_jsonapi
   guard-rspec
   listen (>= 3.0.5, < 3.2)
+  oj
   pry
   pry-byebug
   pry-rails
